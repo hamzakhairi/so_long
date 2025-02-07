@@ -1,0 +1,23 @@
+/* XPM */
+static char *image_xpm[] = {
+"16 16 3 1",
+"  c #000000",
+". c #FFFFFF",
+"X c #FF0000",
+"                ",
+"  ...........   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  .XXXXXXXXX.   ",
+"  ...........   ",
+"                ",
+"                ",
+"                ",
+"                ",
+"                "
+};
