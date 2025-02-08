@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/06 21:20:13 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/07 18:08:59 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SO_LONG_H
 
 #include "./minilibx-linux/mlx.h"
-#include "get_next_line.h"
+#include "./get_next_line/get_next_line.h"
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
