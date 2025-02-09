@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:40:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/07 21:11:48 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/09 20:47:28 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ void	handle_exit(t_game	*game)
 	exit(0);
 }
 
-void	update_position(t_game *game, int new_x, int new_y)
+void	update_position(t_game *game, int new_x, int new_y , int yes, int od_x, int od_y)
 {
 	if (game->map[new_y][new_x] == 'C')
 		game->collectibles--;
 	if (game->map[new_y][new_x] == 'E' && game->collectibles == 0)
 		handle_exit(game);
 	game->map[game->player_y][game->player_x] = '0';
+	if (!yes && od_x != 0 && od_y != 0)
+	{
+		game->map[od_y][od_x] = 'E';
+	}
 	game->map[new_y][new_x] = 'P';
 	game->player_x = new_x;
 	game->player_y = new_y;
@@ -67,6 +71,9 @@ int	handle_keypress(int keycode, t_game *game)
 	int	dy;
 	int	new_x;
 	int	new_y;
+	static int character;
+	static int olde_x;
+	static int olde_y;
 
 	if (keycode == 65307)
 	{
@@ -76,7 +83,15 @@ int	handle_keypress(int keycode, t_game *game)
 	get_movement(keycode, &dx, &dy);
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;
+	if (game->map[new_y][new_x] == 'E')
+	{
+		olde_x = new_x;
+		olde_y = new_y;
+		character = 1;
+	}
+	else
+		character = 0;
 	if (is_valid_move(game, new_x, new_y))
-		update_position(game, new_x, new_y);
+		update_position(game, new_x, new_y, character, olde_x, olde_y);
 	return (0);
 }

@@ -6,28 +6,36 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:28:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/08 10:34:39 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/09 21:40:36 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void check_name(char *str, char *str2)
+{
+	// .ber;
+	int i = 0;
+	int j = 3;
+	while (str[i])
+		i++;
+	i--;
+	while (str[i] && str2[j])
+	{
+		if (str[i] != str2[j])
+		{
+			printf("Invalide name map\n");
+			exit(1);
+		}
+		i--;
+		j--;
+	}
+}
+
 int	ft_close(t_game *game)
 {
 	free_game(game);
 	exit(0);
-}
-
-void	print_map(char	**map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
 }
 
 void	free_game(t_game	*game)
@@ -74,6 +82,7 @@ int	main(int argc, char *argv[])
 		fprintf(stderr, "Usage: %s <map_file.ber>\n", argv[0]);
 		return (1);
 	}
+	check_name(argv[1], ".ber");
 	game = malloc(sizeof(t_game));
 	if (!game)
 	{

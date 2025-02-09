@@ -22,7 +22,6 @@ void	free_map(char	**map)
 	while (map[i])
 	{
 		free(map[i]);
-		printf("%d\n", i);
 		i++;
 	}
 	free(map);

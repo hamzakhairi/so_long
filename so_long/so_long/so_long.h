@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/08 10:33:29 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/09 20:51:32 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,17 @@ typedef struct s_valid
 char	**read_map(char *file);
 t_map	size_map(char **map);
 int		valid_wall(char **map);
-t_valid	valide(char **map);
+void	valide(char **map);
 void	free_map(char **map);
 t_point	find_player(char **map);
 char	**copy_map(char **map, int rows);
-void	flood_fill(char **map, int x, int y, t_valid *game);
-int		validate_map(char **map, t_valid *game);
+void	flood_fill(char **map, int x, int y);
 void	init_game(t_game *game, char *file_name);
 void	render_map(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 void	free_images(t_game *game);
 void	free_game(t_game *game);
+void	validate_map(char **map);
+char	*ft_strdup_str(char	*src);
 
 #endif
