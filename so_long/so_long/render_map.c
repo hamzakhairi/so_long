@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:41:00 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/07 21:51:16 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:03:56 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,28 @@ void	put_image(t_game *game, void *img, int x, int y)
 			x * TILE_SIZE, y * TILE_SIZE);
 }
 
+void	validate_put_game(t_game *game, int x, int y, char c)
+{
+	void	*img;
+
+	img = NULL;
+	if ('1' == c)
+		img = game->img_wall;
+	else if ('0' == c)
+		img = game->img_empty;
+	else if ('P' == c)
+		img = game->img_player;
+	else if ('C' == c)
+		img = game->img_collect;
+	else if ('E' == c)
+		img = game->img_exit;
+	put_image(game, img, x, y);
+}
+
 void	render_map(t_game	*game)
 {
 	int		y;
 	int		x;
-	void	*img;
 
 	y = 0;
 	x = 0;
@@ -32,18 +49,7 @@ void	render_map(t_game	*game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			img = NULL;
-			if (game->map[y][x] == '1')
-				img = game->img_wall;
-			else if (game->map[y][x] == '0')
-				img = game->img_empty;
-			else if (game->map[y][x] == 'P')
-				img = game->img_player;
-			else if (game->map[y][x] == 'C')
-				img = game->img_collect;
-			else if (game->map[y][x] == 'E')
-				img = game->img_exit;
-			put_image(game, img, x, y);
+			validate_put_game(game, x, y, game->map[y][x]);
 			x++;
 		}
 		y++;

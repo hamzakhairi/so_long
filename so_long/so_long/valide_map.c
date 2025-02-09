@@ -6,12 +6,15 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:13 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/05 16:41:18 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:05:11 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "so_long.h"
+
+
+
 
 t_map size_map(char **map)
 {
@@ -42,7 +45,7 @@ t_map size_map(char **map)
     return (map_s);
 }
 
-int valid_wall(char **map)
+int valid_first_wall_and_last_wall(char **map)
 {
     t_map size = size_map(map);
     int i = 0;
@@ -93,17 +96,8 @@ t_valid valide(char **map)
         j = 0;
         while (map[i][j])
         {
-            if (map[i][j] == '0')
-                game.space++;
-            else if (map[i][j] == '1')
-                game.wall++;
-            else if (map[i][j] == 'E')
-                game.exit++;
-            else if (map[i][j] == 'P')
-                game.player++;
-            else if (map[i][j] == 'C')
-                game.collectibl++;
-            else
+            if ((map[i][j] != '0') && (map[i][j] != '1') && (map[i][j] == 'E')
+                && (map[i][j] == 'P') && (map[i][j] == 'C'))
             {
                 printf("[1] Bad character in map %d %d %c\n", i, j, map[i][j]);
                 free_map(map);
@@ -115,7 +109,7 @@ t_valid valide(char **map)
     }
     game.rows = i;
 
-    if (!valid_wall(map))
+    if (!valid_first_wall_and_last_wall(map))
     {
         free_map(map);
         exit(1);
@@ -124,7 +118,7 @@ t_valid valide(char **map)
     return game;
 }
 
-// void validate_map(char **map, )
+
 
 
 

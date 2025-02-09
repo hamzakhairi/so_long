@@ -1,0 +1,20 @@
+┌─[hkhairi@e1r4p7] - [~] - [1198]
+└─[$] export NVM_DIR="$HOME/.nvm"                                    [13:35:40]
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+┌─[hkhairi@e1r4p7] - [~] - [1199]
+└─[$] source ~/.bashrc                                               [13:36:23]
+┌─[hkhairi@e1r4p7] - [~] - [1200]
+└─[$] npm -v                                                         [13:36:26]
+10.9.2
+┌─[hkhairi@e1r4p7] - [~] - [1201]
+└─[$] nvm -v                                                         [13:36:30]
+0.39.3
+┌─[hkhairi@e1r4p7] - [~] - [1202]
+└─[$] npde -v                                                        [13:36:32]
+zsh: command not found: npde
+┌─[hkhairi@e1r4p7] - [~] - [1203]
+└─[$] node -v                                                        [13:36:35]
+v23.6.1
+┌─[hkhairi@e1r4p7] - [~] - [1204]
+└─[$]   

@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:46 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/07 16:35:05 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/08 15:32:47 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	free_map(char	**map)
 	while (map[i])
 	{
 		free(map[i]);
+		printf("%d\n", i);
 		i++;
 	}
 	free(map);

@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:44:43 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/07 21:49:45 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/08 15:20:35 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ t_map_game	get_map_info(char **map, int *player_x,
 {
 	t_map_game	position;
 
-	position = {0, 0};
+	position.x = 0;
+	position.y = 0;
 	while (map[position.y])
 	{
 		position.x = 0;
@@ -57,7 +58,7 @@ void	load_images(t_game	*game)
 	if (!game->img_wall || !game->img_empty || !game->img_player
 		|| !game->img_collect || !game->img_exit)
 	{
-		Printf("Error: Failed to load one or more XPM images\n");
+		printf("Error: Failed to load one or more XPM images\n");
 		free_images(game);
 		exit(1);
 	}
@@ -87,6 +88,7 @@ void	init_game(t_game *game, char *file_name)
 		printf("Error: Failed to load map\n");
 		exit(1);
 	}
+	valide(game->map);
 	game->collectibles = 0;
 	map_info = get_map_info(game->map, &game->player_x,
 			&game->player_y, &game->collectibles);

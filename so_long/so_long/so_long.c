@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:28:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/07 21:54:12 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/08 10:34:39 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ void	free_game(t_game	*game)
 	free(game);
 }
 
+void	bigen_game(t_game *game, char *str)
+{
+	init_game(game, str);
+	render_map(game);
+	mlx_key_hook(game->win, handle_keypress, game);
+	mlx_hook(game->win, 17, 0, ft_close, game);
+	mlx_loop(game->mlx);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_game	*game;
@@ -71,11 +80,7 @@ int	main(int argc, char *argv[])
 		fprintf(stderr, "Error: Memory allocation failed\n");
 		return (1);
 	}
-	init_game(game, argv[1]);
-	render_map(game);
-	mlx_key_hook(game->win, handle_keypress, game);
-	mlx_hook(game->win, 17, 0, ft_close, game);
-	mlx_loop(game->mlx);
+	bigen_game(game, argv[1]);
 	free_game(game);
 	return (0);
 }
