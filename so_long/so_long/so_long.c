@@ -6,17 +6,19 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:28:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/09 21:40:36 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/10 15:05:23 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void check_name(char *str, char *str2)
+void	check_name(char *str, char *str2)
 {
-	// .ber;
-	int i = 0;
-	int j = 3;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 3;
 	while (str[i])
 		i++;
 	i--;

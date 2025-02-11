@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:44:43 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/09 19:51:23 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/10 16:05:34 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ void	exit_if_filed(t_game	*game)
 	exit(1);
 }
 
-void	error_handel(char	*str)
+void	error_handel(t_game *game, char	*str)
 {
 	printf("%s\n", str);
+	free_game(game);
 	exit(0);
 }
 
@@ -84,11 +85,11 @@ void	init_game(t_game *game, char *file_name)
 
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		error_handel("Error: Failed to initialize MLX\n");
+		error_handel(NULL, "Error: Failed to initialize MLX\n");
 	game->map = read_map(file_name);
 	if (!game->map)
-		error_handel("Error: Failed to load map\n");
-	valide(game->map);
+		error_handel(game, "Error: Failed to load map\n");
+	valide(game);
 	game->collectibles = 0;
 	map_info = get_map_info(game->map, &game->player_x,
 			&game->player_y, &game->collectibles);
