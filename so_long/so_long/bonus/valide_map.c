@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:13 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/10 16:15:19 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/12 09:20:13 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	valide(t_game *game)
 		while (map[i][j])
 		{
 			if ((map[i][j] != '0') && (map[i][j] != '1') && (map[i][j] != 'E')
-				&& (map[i][j] != 'P') && (map[i][j] != 'C'))
+				&& (map[i][j] != 'P') && (map[i][j] != 'C') && (map[i][j] != 'M'))
 			{
 				printf("[1] Bad character in map %d %d %c\n", i, j, map[i][j]);
 				free_game(game);
@@ -122,5 +122,6 @@ void	valide(t_game *game)
 		i++;
 	}
 	validate_wall(game);
+	validate_component_map(game);
 	validate_map(game);
 }

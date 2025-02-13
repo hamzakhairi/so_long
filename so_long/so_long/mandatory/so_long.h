@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/10 15:56:40 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/12 09:15:08 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,6 @@ typedef struct s_valid
 	int	exit;
 	int	player;
 	int	collectibl;
-	int	exit_reachable;
-	int	collectibles_reachable;
-	int	rows;
 }	t_valid;
 
 // Function prototypes
@@ -93,5 +90,6 @@ int		is_valid_move(t_game *game, int new_x, int new_y);
 void	update_position(t_game *game, int new_x, int new_y, int yes);
 int		check_copy_map(char **map, int row);
 void	cheack_player(int x, int y, t_game *game);
+void validate_component_map(t_game *game);
 
 #endif
