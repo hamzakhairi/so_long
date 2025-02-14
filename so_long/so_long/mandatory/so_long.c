@@ -75,8 +75,14 @@ void	bigen_game(t_game *game, char *str)
 	mlx_loop(game->mlx);
 }
 
+void detected()
+{
+	system("leaks ./so_long");
+}
+
 int	main(int argc, char *argv[])
 {
+	atexit(detected);
 	t_game	*game;
 
 	if (argc != 2)
