@@ -6,14 +6,14 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/12 09:15:08 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:22:22 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./minilibx/mlx.h"
+# include "./minilibx-linux/mlx.h"
 # include "./get_next_line.h"
 # include <errno.h>
 # include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/13 20:20:59 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/14 21:51:45 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@
 
 typedef struct s_enemy
 {
+
 	int		enemy_x;
 	int		enemy_y;
+	int		direction_image;
+	int		direction;
 }	t_enemy;
 
 typedef struct s_game {
@@ -48,7 +51,7 @@ typedef struct s_game {
 	int		moves;
 	int		old_x;
 	int		old_y;
-	int num_enemies;
+	int		num_enemies;
 	t_enemy	*arr_enemy;
 }	t_game;
 
@@ -104,6 +107,6 @@ void validate_component_map(t_game *game);
 void	handle_failed(t_game *game);
 int game_loop(t_game *game);
 void handel_image_player(t_game *game, int dx, int dy);
-
+void	free_enemy(t_game *game);
 
 #endif
