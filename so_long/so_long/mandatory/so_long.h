@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/14 12:22:22 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:44:02 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "./minilibx-linux/mlx.h"
 # include "./get_next_line.h"
 # include <errno.h>
-# include <stdio.h>
+// # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -90,6 +90,8 @@ int		is_valid_move(t_game *game, int new_x, int new_y);
 void	update_position(t_game *game, int new_x, int new_y, int yes);
 int		check_copy_map(char **map, int row);
 void	cheack_player(int x, int y, t_game *game);
-void validate_component_map(t_game *game);
+void	validate_component_map(t_game *game);
+void	print_error(char *str);
+void	put_nbr(int nbr);
 
 #endif

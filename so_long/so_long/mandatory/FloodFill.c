@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:45:07 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/10 16:03:40 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:22:03 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	flood_fill(char **map, int x, int y)
 
 void	erro_copy_map(t_game *game, char **map_copy)
 {
-	printf("Invalid map\n");
+	print_error("Invalid map\n");
 	free_map(map_copy);
 	free_game(game);
 	exit(1);
@@ -86,7 +86,7 @@ void	validate_map(t_game *game)
 	t_point	player;
 	char	**map_copy;
 	t_map	size;
-	char **map;
+	char	**map;
 
 	map = game->map;
 	player = find_player(map);
@@ -95,7 +95,7 @@ void	validate_map(t_game *game)
 	map_copy = copy_map(map, size.i);
 	if (!map_copy)
 	{
-		printf("Error: Failed to copy the map.\n");
+		print_error("Error: Failed to copy the map.\n");
 		free_game(game);
 		exit(1);
 	}

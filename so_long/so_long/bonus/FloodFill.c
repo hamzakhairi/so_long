@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:45:07 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/12 13:32:23 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/15 16:24:01 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	validate_map(t_game *game)
 	t_point	player;
 	char	**map_copy;
 	t_map	size;
-	char **map;
+	char	**map;
 
 	map = game->map;
 	player = find_player(map);

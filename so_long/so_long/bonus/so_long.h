@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/14 21:51:45 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 15:37:37 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,7 @@ void	handle_failed(t_game *game);
 int game_loop(t_game *game);
 void handel_image_player(t_game *game, int dx, int dy);
 void	free_enemy(t_game *game);
+void	free_all_component(t_game	*game);
+void	find_enemy_positions(t_game *game);
 
 #endif

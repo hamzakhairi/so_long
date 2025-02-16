@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:28:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/14 23:00:51 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 15:08:39 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,32 +47,8 @@ int	ft_close(t_game *game)
 
 void	free_game(t_game	*game)
 {
-	if (!game)
-		return ;
-	if (game->map)
-		free_map(game->map);
-	if (game->arr_enemy)
-		free_enemy(game);
-	if (game->img_wall)
-		mlx_destroy_image(game->mlx, game->img_wall);
-	if (game->img_empty)
-		mlx_destroy_image(game->mlx, game->img_empty);
-	if (game->img_enemy)
-		mlx_destroy_image(game->mlx, game->img_enemy);
-	if (game->img_player)
-		mlx_destroy_image(game->mlx, game->img_player);
-	if (game->img_collect)
-		mlx_destroy_image(game->mlx, game->img_collect);
-	if (game->img_exit)
-		mlx_destroy_image(game->mlx, game->img_exit);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-	}
-	free(game);
+	if (game)
+		free_all_component(game);
 }
 
 void	bigen_game(t_game *game, char *str)
@@ -80,7 +56,7 @@ void	bigen_game(t_game *game, char *str)
 	init_game(game, str);
 	render_map(game);
 	mlx_key_hook(game->win, handle_keypress, game);
-	mlx_loop_hook(game->mlx, game_loop, game); 
+	mlx_loop_hook(game->mlx, game_loop, game);
 	mlx_hook(game->win, 17, 0, ft_close, game);
 	mlx_loop(game->mlx);
 }
@@ -88,8 +64,6 @@ void	bigen_game(t_game *game, char *str)
 int	main(int argc, char *argv[])
 {
 	t_game	*game;
-
-
 
 	if (argc != 2)
 	{
@@ -103,17 +77,6 @@ int	main(int argc, char *argv[])
 		fprintf(stderr, "Error: Memory allocation failed\n");
 		return (1);
 	}
-	*game = (t_game){
-    .mlx = NULL, .win = NULL,
-    .img_wall = NULL, .img_player = NULL, .img_collect = NULL,
-    .img_exit = NULL, .img_empty = NULL, .img_enemy = NULL,
-    .map = NULL,
-    .map_width = 0, .map_height = 0,
-    .player_x = 0, .player_y = 0,
-    .collectibles = 0, .moves = 0,
-    .old_x = 0, .old_y = 0,
-    .num_enemies = 0, .arr_enemy = NULL
-};
 	bigen_game(game, argv[1]);
 	free_game(game);
 	return (0);

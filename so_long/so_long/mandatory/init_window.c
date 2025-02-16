@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:44:43 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/12 09:13:55 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/15 11:29:15 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	load_images(t_game	*game)
 	if (!game->img_wall || !game->img_empty || !game->img_player
 		|| !game->img_collect || !game->img_exit)
 	{
-		printf("Error: Failed to load one or more XPM images\n");
+		print_error("Error: Failed to load one or more XPM images\n");
 		free_images(game);
 		exit(1);
 	}
@@ -66,7 +66,7 @@ void	load_images(t_game	*game)
 
 void	exit_if_filed(t_game	*game)
 {
-	printf("Error: Failed to create window\n");
+	print_error("Error: Failed to create window\n");
 	free_map(game->map);
 	free(game);
 	exit(1);
@@ -74,7 +74,8 @@ void	exit_if_filed(t_game	*game)
 
 void	error_handel(t_game *game, char	*str)
 {
-	printf("%s\n", str);
+	print_error(str);
+	print_error("\n");
 	free_game(game);
 	exit(0);
 }
@@ -85,7 +86,7 @@ void	init_game(t_game *game, char *file_name)
 
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		error_handel(NULL, "Error: Failed to initialize MLX\n");
+		error_handel(game, "Error: Failed to initialize MLX\n");
 	game->map = read_map(file_name);
 	if (!game->map)
 		error_handel(game, "Error: Failed to load map\n");

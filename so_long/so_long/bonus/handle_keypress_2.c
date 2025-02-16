@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:10:22 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/13 10:47:37 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/15 16:24:33 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	update_position(t_game *game, int new_x, int new_y, int yes)
 	if (game->map[new_y][new_x] == 'C')
 		game->collectibles--;
 	if (game->map[new_y][new_x] == 'M')
-		handle_failed(game); 	
+		handle_failed(game);
 	if (game->map[new_y][new_x] == 'E' && game->collectibles == 0)
 		handle_exit(game);
 	game->map[game->player_y][game->player_x] = '0';

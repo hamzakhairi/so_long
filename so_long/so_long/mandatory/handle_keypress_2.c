@@ -6,19 +6,25 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:10:22 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/10 14:56:47 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/15 14:53:47 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	draw_move_counter(t_game *game)
+{
+	print_error("Moves: ");
+	put_nbr(game->moves);
+	print_error("\n");
+}
+
 void	handle_exit(t_game	*game)
 {
-	printf("You win!\n");
+	print_error("You win!\n");
 	mlx_string_put(game->mlx, game->win, game->map_width * TILE_SIZE / 2 - 50,
 		game->map_height * TILE_SIZE / 2, 0x00FF00, "You win!");
 	mlx_do_sync(game->mlx);
-	sleep(2);
 	free_game(game);
 	exit(0);
 }
@@ -38,6 +44,7 @@ void	update_position(t_game *game, int new_x, int new_y, int yes)
 	game->player_x = new_x;
 	game->player_y = new_y;
 	game->moves++;
+	draw_move_counter(game);
 	render_map(game);
 }
 
