@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:10:22 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/15 16:24:33 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 23:25:50 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	handle_exit(t_game	*game)
 	mlx_string_put(game->mlx, game->win, game->map_width * TILE_SIZE / 2 - 50,
 		game->map_height * TILE_SIZE / 2, 0x00FF00, "You win!");
 	mlx_do_sync(game->mlx);
-	sleep(2);
 	free_game(game);
 	exit(0);
 }
@@ -29,7 +28,6 @@ void	handle_failed(t_game *game)
 	mlx_string_put(game->mlx, game->win, game->map_width * TILE_SIZE / 2 - 50,
 		game->map_height * TILE_SIZE / 2, 0x00FF00, "Game Over!");
 	mlx_do_sync(game->mlx);
-	sleep(2);
 	free_game(game);
 	exit(0);
 }
@@ -40,6 +38,8 @@ void	update_position(t_game *game, int new_x, int new_y, int yes)
 		game->collectibles--;
 	if (game->map[new_y][new_x] == 'M')
 		handle_failed(game);
+	if (game->collectibles == 0)
+		handel_open_exit(game);
 	if (game->map[new_y][new_x] == 'E' && game->collectibles == 0)
 		handle_exit(game);
 	game->map[game->player_y][game->player_x] = '0';

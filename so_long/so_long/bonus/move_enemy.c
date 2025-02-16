@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:22:09 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 15:43:00 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 23:18:32 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void update_enemy_direction(t_game *game, int i)
     void *new_img;
 
     if (game->arr_enemy[i].direction_image == 1)
-        new_img = mlx_xpm_file_to_image(game->mlx, "./image/playeer1.xpm", &img_width, &img_height);
+        new_img = mlx_xpm_file_to_image(game->mlx, "./texter/enemy_left.xpm", &img_width, &img_height);
     else
-        new_img = mlx_xpm_file_to_image(game->mlx, "./image/playeer2.xpm", &img_width, &img_height);
+        new_img = mlx_xpm_file_to_image(game->mlx, "./texter/enemy_rigth.xpm", &img_width, &img_height);
 
     if (new_img)
     {
@@ -50,14 +50,14 @@ static void move_single_enemy(t_game *game, int i)
     {
         next_tile = game->map[new_y][new_x];
         if (next_tile == '0')
+        {
             if_next_tile_0(game, i, new_y, new_x);
+            update_enemy_direction(game, i);
+        }
         else if (next_tile == 'P')
             handle_failed(game);
         else if (next_tile == '1' || next_tile == 'E' || next_tile == 'M' || next_tile == 'C')
-        {
             game->arr_enemy[i].direction *= -1;
-            update_enemy_direction(game, i);
-        }
     }
     else
     {

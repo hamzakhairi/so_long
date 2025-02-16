@@ -1,14 +1,17 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    .Makefile                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/16 15:26:37 by hkhairi           #+#    #+#              #
-#    Updated: 2025/02/16 15:34:38 by hkhairi          ###   ########.fr        #
+#    Updated: 2025/02/16 21:41:52 by hkhairi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# SRC_BONUS = $(BONUS_PART)/so_long.c $(BONUS_PART)/FloodFill_2.c $(BONUS_PART)/read_file.c $(BONUS_PART)/valide_map_2.c $(BONUS_PART)/handle_keypress_2.c $(BONUS_PART)/valide_map.c $(BONUS_PART)/FloodFill.c $(BONUS_PART)/free_map.c $(BONUS_PART)/get_next_line.c $(BONUS_PART)/get_next_line_utils.c $(BONUS_PART)/init_window.c $(BONUS_PART)/handle_keypress.c $(BONUS_PART)/render_map.c
+
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I.

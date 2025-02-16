@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:44:43 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/15 11:29:15 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 23:12:15 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ void	load_images(t_game	*game)
 	img_width = 0;
 	img_height = 0;
 	game->img_wall = mlx_xpm_file_to_image(game->mlx,
-			"./image/wall.xpm", &img_width, &img_height);
+			"./texter/wall.xpm", &img_width, &img_height);
 	game->img_empty = mlx_xpm_file_to_image(game->mlx,
-			"./image/empty.xpm", &img_width, &img_height);
+			"./texter/empty.xpm", &img_width, &img_height);
 	game->img_player = mlx_xpm_file_to_image(game->mlx,
-			"./image/player.xpm", &img_width, &img_height);
+			"./texter/playeer_down.xpm", &img_width, &img_height);
 	game->img_collect = mlx_xpm_file_to_image(game->mlx,
-			"./image/collect.xpm", &img_width, &img_height);
+			"./texter/collect.xpm", &img_width, &img_height);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx,
-			"./image/exit.xpm", &img_width, &img_height);
+			"./texter/exit_close.xpm", &img_width, &img_height);
 	if (!game->img_wall || !game->img_empty || !game->img_player
 		|| !game->img_collect || !game->img_exit)
 	{
-		print_error("Error: Failed to load one or more XPM images\n");
+		print_error("Error : Failed to load one or more XPM images\n");
 		free_images(game);
 		exit(1);
 	}

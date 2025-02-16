@@ -6,11 +6,13 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:07:09 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/15 16:31:26 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 22:42:04 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+
 
 t_map	size_map(t_game *game)
 {

@@ -6,11 +6,24 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:40:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/13 11:02:39 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 22:54:20 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	handel_open_exit(t_game *game)
+{
+	int img_width;
+    int img_height;
+
+	if (game->img_exit)
+	{
+		mlx_destroy_image(game->mlx, game->img_exit);
+		game->img_exit = mlx_xpm_file_to_image(game->mlx, "./texter/exit_open.xpm", &img_width, &img_height);
+	}
+	
+}
 
 void	handle_exit_key(t_game *game, int keycode)
 {

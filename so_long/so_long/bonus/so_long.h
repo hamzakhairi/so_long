@@ -6,14 +6,14 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 15:37:37 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/16 22:51:51 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "./get_next_line.h"
 # include <errno.h>
 # include <stdio.h>
@@ -26,7 +26,6 @@
 
 typedef struct s_enemy
 {
-
 	int		enemy_x;
 	int		enemy_y;
 	int		direction_image;
@@ -110,5 +109,6 @@ void handel_image_player(t_game *game, int dx, int dy);
 void	free_enemy(t_game *game);
 void	free_all_component(t_game	*game);
 void	find_enemy_positions(t_game *game);
+void	handel_open_exit(t_game *game);
 
 #endif
