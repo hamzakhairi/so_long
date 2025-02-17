@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:46 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/15 16:21:33 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:07:43 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,4 @@ void	free_all_component(t_game	*game)
 		free(game->mlx);
 	}
 	free(game);
-}
-
-void	print_error(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
 }

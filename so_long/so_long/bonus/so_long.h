@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 22:51:51 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:08:35 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 # include "../minilibx-linux/mlx.h"
 # include "./get_next_line.h"
-# include <errno.h>
-# include <stdio.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
@@ -102,13 +101,16 @@ int		is_valid_move(t_game *game, int new_x, int new_y);
 void	update_position(t_game *game, int new_x, int new_y, int yes);
 int		check_copy_map(char **map, int row);
 void	cheack_player(int x, int y, t_game *game);
-void validate_component_map(t_game *game);
+void	validate_component_map(t_game *game);
 void	handle_failed(t_game *game);
-int game_loop(t_game *game);
-void handel_image_player(t_game *game, int dx, int dy);
+int		game_loop(t_game *game);
+void	handel_image_player(t_game *game, int dx, int dy);
 void	free_enemy(t_game *game);
 void	free_all_component(t_game	*game);
 void	find_enemy_positions(t_game *game);
 void	handel_open_exit(t_game *game);
+void	put_nbr(int nbr);
+void	print_error(char	*str);
+void	draw_move_counter(t_game *game);
 
 #endif

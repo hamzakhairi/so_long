@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:47:58 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 15:43:09 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 17:28:42 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,42 +63,39 @@ static void	main_make_change(t_game *game, int i, int j, int *index)
 	}
 }
 
-static void init_enemies(t_game *game, int enemy_count)
+static void	init_enemies(t_game *game, int enemy_count)
 {
-    int i;
-    int index;
-    int j;
-
-    if (enemy_count <= 0 || !game->map)
-    {
-        game->arr_enemy = NULL;
-        game->num_enemies = 0;
-        return;
-    }
-
-    game->arr_enemy = (t_enemy *)malloc(enemy_count * sizeof(t_enemy));
-    if (!game->arr_enemy)
-    {
-        printf("Failed to allocate memory for enemies\n");
-        free_game(game);
-        exit(1);
-    }
-
-    game->num_enemies = enemy_count;
-    i = 0;
-    index = 0;
-    while (game->map[i])
-    {
-        j = 0;
-        main_make_change(game, i, j, &index);
-        i++;
-    }
+	if (enemy_count <= 0 || !game->map)
+	{
+		game->arr_enemy = NULL;
+		game->num_enemies = 0;
+		return ;
+	}
+	game->arr_enemy = (t_enemy *)malloc(enemy_count * sizeof(t_enemy));
+	if (!game->arr_enemy)
+	{
+		print_error("Error : Failed to allocate memory for enemies\n");
+		free_game(game);
+		exit(1);
+	}
+	game->num_enemies = enemy_count;
+	i = 0;
+	index = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		main_make_change(game, i, j, &index);
+		i++;
+	}
 }
 
 void	find_enemy_positions(t_game *game)
 {
 	int	enemy_count;
+	int	i;
+	int	index;
+	int	j;
 
 	enemy_count = count_enemies(game);
-	init_enemies(game, enemy_count);
+	init_enemies(game, enemy_count, i, index, j);
 }

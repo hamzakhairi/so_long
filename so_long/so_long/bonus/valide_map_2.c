@@ -6,13 +6,11 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:07:09 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 22:42:04 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:08:05 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
 
 t_map	size_map(t_game *game)
 {
@@ -33,7 +31,7 @@ t_map	size_map(t_game *game)
 			prev = map_s.j;
 		if (prev != map_s.j)
 		{
-			printf("[2] Invalid map\n");
+			print_error("Error : Invalid map\n");
 			free_game(game);
 			exit(1);
 		}
@@ -84,7 +82,7 @@ void	validate_component_map(t_game *game)
 	sume = (t_valid *)malloc(sizeof(t_valid));
 	if (!sume)
 	{
-		printf("Memory allocation failed!\n");
+		print_error("Error : Memory allocation failed!\n");
 		free_game(game);
 		exit(1);
 	}
@@ -98,7 +96,7 @@ void	validate_component_map(t_game *game)
 	if (sume->wall < 1 || sume->player != 1 || sume->collectibl < 1
 		|| sume->exit != 1 || sume->space < 1 || sume->enemy < 1)
 	{
-		printf("Error: Invalid component in map!\n");
+		print_error("Error: Invalid component in map!\n");
 		free(sume);
 		free_game(game);
 		exit(1);

@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:41:00 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/14 18:05:41 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 16:55:49 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	render_map(t_game	*game)
 		}
 		y++;
 	}
+	draw_move_counter(game);
 }

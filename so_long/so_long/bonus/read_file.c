@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:05:00 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/09 19:48:01 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 14:39:39 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	fill_map(int fd, char **map)
 		free(str);
 		if (!map[i] || map[i][0] == '\0')
 		{
-			printf("Invalid map (last line is empty)\n");
+			print_error("Error : Invalid map (last line is empty)\n");
 			free_map(map);
 			exit(1);
 		}
@@ -99,7 +99,7 @@ char	**read_map(char	*file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error opening file");
+		print_error("Error : opening file\n");
 		return (NULL);
 	}
 	number = number_map(file);

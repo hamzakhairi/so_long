@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:40:44 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 22:54:20 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:01:07 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	handel_open_exit(t_game *game)
 {
-	int img_width;
-    int img_height;
+	int	img_width;
+	int	img_height;
 
 	if (game->img_exit)
 	{
 		mlx_destroy_image(game->mlx, game->img_exit);
-		game->img_exit = mlx_xpm_file_to_image(game->mlx, "./texter/exit_open.xpm", &img_width, &img_height);
+		game->img_exit = mlx_xpm_file_to_image(game->mlx,
+				"./texter/exit_open.xpm", &img_width, &img_height);
 	}
-	
 }
 
 void	handle_exit_key(t_game *game, int keycode)
@@ -66,9 +66,8 @@ void	process_movement(t_game *game, int keycode)
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;
 	handle_door(game, new_x, new_y, &character);
-	if (is_valid_move(game, new_x, new_y))
-		update_position(game, new_x,
-			new_y, character);
+	if (is_valid_move(game, new_x, new_y) && (dx != -2) && (dx != -2))
+		update_position(game, new_x, new_y, character);
 }
 
 int	handle_keypress(int keycode, t_game *game)

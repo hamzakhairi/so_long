@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:10:22 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 23:25:50 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:02:17 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	handle_exit(t_game	*game)
 {
-	printf("You win!\n");
+	print_error("You win!\n");
 	mlx_string_put(game->mlx, game->win, game->map_width * TILE_SIZE / 2 - 50,
 		game->map_height * TILE_SIZE / 2, 0x00FF00, "You win!");
 	mlx_do_sync(game->mlx);
@@ -24,7 +24,7 @@ void	handle_exit(t_game	*game)
 
 void	handle_failed(t_game *game)
 {
-	printf("Game Over!\n");
+	print_error("Game Over!\n");
 	mlx_string_put(game->mlx, game->win, game->map_width * TILE_SIZE / 2 - 50,
 		game->map_height * TILE_SIZE / 2, 0x00FF00, "Game Over!");
 	mlx_do_sync(game->mlx);
@@ -68,12 +68,17 @@ void	get_movement(int keycode, int *dx, int *dy)
 {
 	*dx = 0;
 	*dy = 0;
-	if (keycode == 65361)
+	if (keycode == 97)
 		*dx = -1;
-	else if (keycode == 65363)
+	else if (keycode == 100)
 		*dx = 1;
-	else if (keycode == 65362)
+	else if (keycode == 119)
 		*dy = -1;
-	else if (keycode == 65364)
+	else if (keycode == 115)
 		*dy = 1;
+	else
+	{
+		*dx = -2;
+		*dx = -2;
+	}
 }

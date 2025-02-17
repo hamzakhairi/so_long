@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:44:43 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 23:15:07 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 14:35:53 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	load_images(t_game	*game)
 	if (!game->img_wall || !game->img_empty || !game->img_player
 		|| !game->img_collect || !game->img_exit || !game->img_enemy)
 	{
-		printf("Error: Failed to load one or more XPM images\n");
+		print_error("Error: Failed to load one or more XPM images\n");
 		free_images(game);
 		exit(1);
 	}
@@ -68,7 +68,7 @@ void	load_images(t_game	*game)
 
 void	exit_if_filed(t_game	*game)
 {
-	printf("Error: Failed to create window\n");
+	print_error("Error: Failed to create window\n");
 	free_map(game->map);
 	free(game);
 	exit(1);
@@ -76,7 +76,8 @@ void	exit_if_filed(t_game	*game)
 
 void	error_handel(t_game *game, char	*str)
 {
-	printf("%s\n", str);
+	print_error(str);
+	print_error("\n");
 	free_game(game);
 	exit(0);
 }

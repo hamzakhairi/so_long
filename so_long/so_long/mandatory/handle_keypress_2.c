@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:10:22 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/15 14:53:47 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:05:24 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	get_movement(int keycode, int *dx, int *dy)
 {
 	*dx = 0;
 	*dy = 0;
-	if (keycode == 65361)
+	if (keycode == 97)
 		*dx = -1;
-	else if (keycode == 65363)
+	else if (keycode == 100)
 		*dx = 1;
-	else if (keycode == 65362)
+	else if (keycode == 119)
 		*dy = -1;
-	else if (keycode == 65364)
+	else if (keycode == 115)
 		*dy = 1;
 }
