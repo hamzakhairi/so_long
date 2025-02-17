@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/17 18:08:35 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:46:27 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ void	handel_open_exit(t_game *game);
 void	put_nbr(int nbr);
 void	print_error(char	*str);
 void	draw_move_counter(t_game *game);
+void	check_width_and_height(t_game *game, t_map	size_map);
 
 #endif

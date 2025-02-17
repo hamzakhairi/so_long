@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:22:09 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/17 17:23:06 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:10:31 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	move_enemies(t_game *game)
 	static int	counter;
 	int			i;
 
-	counter = 0;
 	counter++;
 	if (counter < 15000)
 		return ;

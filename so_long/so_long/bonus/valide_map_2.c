@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 19:07:09 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/17 18:08:05 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:46:44 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,27 @@ t_map	size_map(t_game *game)
 		map_s.i++;
 	}
 	return (map_s);
+}
+
+void	check_width_and_height(t_game *game, t_map	size_map)
+{
+	int	width;
+	int	height;
+
+	width = size_map.j;
+	height = size_map.i;
+	if ((width * 32 > 3200) || (width * 32 == 0))
+	{
+		print_error("Error : map is so long\n");
+		free_game(game);
+		exit(1);
+	}
+	if ((height * 32 > 1720) || (height * 32 == 0))
+	{
+		print_error("Error : map is so long\n");
+		free_game(game);
+		exit(1);
+	}
 }
 
 void	add_one(t_valid *sume, char c)

@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:03:34 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/16 21:35:14 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:46:52 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ void	cheack_player(int x, int y, t_game *game);
 void	validate_component_map(t_game *game);
 void	print_error(char *str);
 void	put_nbr(int nbr);
+void	check_width_and_height(t_game *game, t_map	size_map);
 
 #endif

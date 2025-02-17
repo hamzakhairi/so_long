@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:47:58 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/17 17:28:42 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:12:56 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,10 @@ static void	main_make_change(t_game *game, int i, int j, int *index)
 
 static void	init_enemies(t_game *game, int enemy_count)
 {
-	if (enemy_count <= 0 || !game->map)
-	{
-		game->arr_enemy = NULL;
-		game->num_enemies = 0;
-		return ;
-	}
+	int	i;
+	int	index;
+	int	j;
+
 	game->arr_enemy = (t_enemy *)malloc(enemy_count * sizeof(t_enemy));
 	if (!game->arr_enemy)
 	{
@@ -92,10 +90,13 @@ static void	init_enemies(t_game *game, int enemy_count)
 void	find_enemy_positions(t_game *game)
 {
 	int	enemy_count;
-	int	i;
-	int	index;
-	int	j;
 
 	enemy_count = count_enemies(game);
-	init_enemies(game, enemy_count, i, index, j);
+	if (enemy_count <= 0 || !game->map)
+	{
+		game->arr_enemy = NULL;
+		game->num_enemies = 0;
+		return ;
+	}
+	init_enemies(game, enemy_count);
 }

@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:38:48 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/17 17:59:25 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 19:12:23 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	int_to_str_helper(int num, char *str)
 void	int_to_str(int num, char *str)
 {
 	int		i;
-	bool	is_negative;
+	int		is_negative;
 	int		len;
 
 	i = 0;
@@ -52,7 +52,10 @@ void	int_to_str(int num, char *str)
 		str[i++] = '0';
 	else
 	{
-		is_negative = (num < 0);
+		if (num < 0)
+			is_negative = 1;
+		else
+			is_negative = 0;
 		if (is_negative)
 			num = -num;
 		len = int_to_str_helper(num, str);
@@ -66,10 +69,10 @@ void	int_to_str(int num, char *str)
 
 void	get_move_string(int moves, char *buffer)
 {
-	char	prefix[];
+	char	*prefix;
 	int		i;
 
-	prefix[] = "Moves: ";
+	prefix = "Moves: ";
 	i = 0;
 	while (prefix[i])
 	{

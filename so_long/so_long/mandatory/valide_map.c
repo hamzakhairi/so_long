@@ -6,7 +6,7 @@
 /*   By: hkhairi <hkhairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:46:13 by hkhairi           #+#    #+#             */
-/*   Updated: 2025/02/15 14:50:06 by hkhairi          ###   ########.fr       */
+/*   Updated: 2025/02/17 18:31:49 by hkhairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	validate_wall(t_game *game)
 	j = 0;
 	map = game->map;
 	size = size_map(game);
+	check_width_and_height(game, size);
 	while (map[i])
 	{
 		j = 0;
