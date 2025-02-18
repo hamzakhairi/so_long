@@ -12,32 +12,52 @@
 
 #include "so_long.h"
 
-t_map	size_map(t_game *game)
+t_map size_map(t_game *game)
 {
-	t_map	map_s;
-	int		prev;
-	char	**map;
+    t_map map_s;
+    int prev;
+    char **map;
 
-	map = game->map;
-	map_s.i = 0;
-	map_s.j = 0;
-	prev = 0;
-	while (map[map_s.i])
-	{
-		map_s.j = 0;
-		while (map[map_s.i][map_s.j])
-			map_s.j++;
-		if (prev == 0)
-			prev = map_s.j;
-		if (prev != map_s.j)
-		{
-			print_error("Error : Invalid map\n");
+    map_s.i = 0;
+    map_s.j = 0;
+
+    if (!game || !game->map)
+    {
+        printf("Error: game or game->map is NULL\n");
+        return (map_s);
+    }
+
+    map = game->map;
+    prev = 0;
+
+    while (map[map_s.i])
+    {
+        if (map[map_s.i][0] == '\0')
+        {
+            print_error("Error : empty line found\n");
 			free_game(game);
 			exit(1);
-		}
-		map_s.i++;
-	}
-	return (map_s);
+        }
+
+        map_s.j = 0;
+        while (map[map_s.i][map_s.j])
+            map_s.j++;
+
+        printf("map[%d] length = %d\n", map_s.i, map_s.j);
+
+        if (prev == 0)
+            prev = map_s.j;
+        else if (prev != map_s.j)
+        {
+            printf("Error: map lines have different lengths\n");
+            map_s.i = -1;
+            map_s.j = -1;
+            return (map_s);
+        }
+
+        map_s.i++;
+    }
+    return (map_s);
 }
 
 void	check_width_and_height(t_game *game, t_map	size_map)
